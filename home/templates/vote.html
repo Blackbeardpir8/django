@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+<h1>Check if you can vote</h1>
+
+<a href="/">Home</a>
+<br>
+<br>
+<a href="/renderhtml/">Render HTML</a>
+<a href = "/search_page/">SearchPage</a>
+<br>
+<br>
+{% for person in people %}
+    <br>
+    <br>
+    {% if person.age >= 18 and person.age <= 69 %}
+        {{ person.name }} You can vote
+    {% elif person.age >= 70 and person.age <= 90 %}
+        {{ person.name }} You can vote. You are a senior citizen
+    {% else %}
+        {{ person.name }} You cannot vote
+    {% endif %}
+    <br>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block start %}
+
+
+    <h1>Hello Client</h1>
+    <h3>Bhen k lawde madharchod</h3>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo natus aliquam mollitia, accusamus debitis architecto distinctio pariatur corrupti, cupiditate tempore 
+    numquam qui quaerat maiores obcaecati minima quisquam consequuntur asperiores minus!</p>
+    <a href="/">Home</a>
+    <a href="/vote/">Vote</a>
+    <a href = "/index/">Index</a>
+    <a href = "/search_page/">SearchPage</a>
+    <br>
+    <br>
+    {{names}}
+    <br>
+    {{names|length}} Length of names tuple
+    <br>
+    {{items}}
+    <br>
+    <br>
+    {% for name in names %}
+        {% if not name == "Deepak" %}
+        <h4>{{name}}</h4>
+        {% endif %}
+    {%endfor%}
+    <br>
+    <br>
+    {{fruits|default:"No value Provided"}}
+
+
+{% endblock %}
+
