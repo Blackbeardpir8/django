@@ -75,8 +75,4 @@ def search_page(request):
     context = {'students' : students,'search':search }
     return render(request , 'search.html',context)
 
-"""def deepak():
-    KeyboardInterruptsdfsldkflsdf
-    sdkflksdflksdjlfl
-    sdfjsldkfjlksdf
-    sdhflsdkjflskjfj"""
+"
