@@ -21,9 +21,12 @@ class Author(models.Model):
     author_name = models.CharField(max_length=100)
 
 
-class Book(models.Model): 
-    author = models.OneToOneField(Author, on_delete=models.CASCADE)
+class Book(models.Model):
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
     book_name = models.CharField(max_length=100)
+    published_date = models.DateField(null=True, blank=True)  # Allowing null
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)  # Setting a default value
+
 
 ## Foreign Key or One to Many relationship
 class Brand(models.Model):
