@@ -1,4 +1,6 @@
+from typing import Iterable
 from django.db import models
+
 
 
 # Create your models here.
@@ -39,6 +41,12 @@ class Brand(models.Model):
 class Products(models.Model):
      brand = models.ForeignKey(Brand,on_delete=models.CASCADE)
      prduct_name = models.CharField(max_length=100)
+     slug = models.SlugField(max_length=100 ,null=True,blank=True)
+
+     def save(self, *args , **kwargs) -> None:
+         print("Called")
+
+         return super().save(*args, **kwargs)
 
 ## many to many relationship
 class Skills(models.Model):
