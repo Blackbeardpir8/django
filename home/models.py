@@ -1,6 +1,6 @@
 from typing import Iterable
 from django.db import models
-
+from django.template.defaultfilters import slugify
 
 
 # Create your models here.
@@ -44,7 +44,7 @@ class Products(models.Model):
      slug = models.SlugField(max_length=100 ,null=True,blank=True)
 
      def save(self, *args , **kwargs) -> None:
-         print("Called")
+         self.slug = slugify(self.prduct_name)
 
          return super().save(*args, **kwargs)
 

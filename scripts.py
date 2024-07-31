@@ -17,5 +17,5 @@ from django.db.models import Sum , Min ,Max,Count,Avg,Q
 
 
 Products.objects.create(brand = Brand.objects.first(),
-                        prduct_name = "trimmer"
+                        prduct_name = "trimmer men with perfect trim"
                         )
