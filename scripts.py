@@ -16,7 +16,8 @@ from django.db.models import Sum , Min ,Max
 def handle():
     #books = Book.objects.Sum()
     #books = Book.objects.aggregate(price = Avg('price'))
-    books = Book.objects.aggregate(price = Min('price'))
+    #books = Book.objects.aggregate(price = Min('price'))
+    books = Book.objects.aggregate(price = Max('price'))
     
     print(books)
 
