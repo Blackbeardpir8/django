@@ -14,10 +14,11 @@ from django.db.models import Sum , Min ,Max,Count
 
 
 def handle():
-    authors = Author.objects.annotate(total_books = Count('book'))
-
+    #authors = Author.objects.annotate(total_books = Count('book'))
+    authors = Author.objects.annotate(avg_price = Avg('book__price'))
+    
     for author in authors:
-        print("Author name {author.author_name} total books{author.total_books}")
-    print(authors)
+        print("Author name {author.author_name} total avg price {author.avg_prive}")
+    
 
 handle()
