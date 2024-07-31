@@ -10,15 +10,14 @@ import random
 from faker import Faker
 from home.models import Author, Book
 from datetime import datetime, timedelta
-from django.db.models import Sum , Min ,Max
+from django.db.models import Sum , Min ,Max,Count
 
 
 def handle():
-    #books = Book.objects.Sum()
-    #books = Book.objects.aggregate(price = Avg('price'))
-    #books = Book.objects.aggregate(price = Min('price'))
-    books = Book.objects.aggregate(price = Max('price'))
-    
-    print(books)
+    authors = Author.objects.annotate(total_books = Count(Book))
+
+    for author in authors:
+        print("Author name {author.author_name} total books{author.total_books}")
+    print(authors)
 
 handle()
