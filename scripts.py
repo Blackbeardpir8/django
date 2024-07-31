@@ -10,7 +10,7 @@ import random
 from faker import Faker
 from home.models import Author, Book
 from datetime import datetime, timedelta
-from django.db.models import Sum , Min ,Max,Count
+from django.db.models import Sum , Min ,Max,Count,Avg
 
 
 def handle():
