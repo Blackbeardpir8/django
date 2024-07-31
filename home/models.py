@@ -45,7 +45,8 @@ class Products(models.Model):
      slug = models.SlugField(max_length=100 ,null=True,blank=True)
 
      def save(self, *args , **kwargs) -> None:
-         self.slug = generateSlug(self.prduct_name,Products)
+         if not self.id:
+             self.slug = generateSlug(self.prduct_name,Products)
 
          return super().save(*args, **kwargs)
 
