@@ -14,7 +14,7 @@ from django.db.models import Avg
 
 
 def handle():
-    books = Book.objects.count()
+    books = Book.objects.aggregate(price = Avg('price'))
     print(books)
 
 handle()
