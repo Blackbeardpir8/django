@@ -14,7 +14,7 @@ from django.db.models import Sum , Min ,Max,Count
 
 
 def handle():
-    authors = Author.objects.annotate(total_books = Count(Book))
+    authors = Author.objects.annotate(total_books = Count('book'))
 
     for author in authors:
         print("Author name {author.author_name} total books{author.total_books}")
