@@ -24,11 +24,10 @@ fake = Faker()
 #        )
 
 def deletePerson(number):
-    for i in range(number):
-        Person.objects.first().delete()
+        Person.objects.all().delete()
 
 
-deletePerson(1000)
+deletePerson(10000)
 
 
 #createPerson(100000)
