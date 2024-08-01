@@ -13,9 +13,14 @@ from faker import Faker
 from home.models import Author, Book, Products, Brand
 from datetime import datetime, timedelta
 from django.db.models import Sum , Min ,Max,Count,Avg,Q
+from home.models import *
+fake = Faker()
 
 
+def createPerson(number):
+    for i in range (number):
+        Person.objects.create(
+            person_name = fake.name()
+        )
 
-Products.objects.create(brand = Brand.objects.first(),
-                        prduct_name = "trimmer men with perfect trim"
-                        )
+createPerson(100000)
