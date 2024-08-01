@@ -76,3 +76,19 @@ class Student2(models.Model):
     age = models.IntegerField()
 
 
+class Human(models.Model):
+    name = models.CharField(max_length=100)
+    age =models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=100)
+
+    class Meta:
+        abstract = True
+
+class Engineer(Human):
+    technology = models.CharField(max_length=100)
+
+class HR(Human):
+    responsibility = models.CharField(max_length=100)
+
+class Investor(Human):
+    money = models.CharField(max_length=100)
