@@ -30,6 +30,9 @@ class Book(models.Model):
     published_date = models.DateField(null=True, blank=True)  # Allowing null
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)  # Setting a default value
 
+    class Meta:
+        db_table = "book"
+        ordering = ('price',)
 
 ## Foreign Key or One to Many relationship
 class Brand(models.Model):
