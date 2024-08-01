@@ -46,6 +46,9 @@ class Brand(models.Model):
     
     class Meta:
         unique_together = ('brand_name', 'country')
+        index_together = ('brand_name', 'country')
+
+
 class Products(models.Model):
      brand = models.ForeignKey(Brand,on_delete=models.CASCADE)
      prduct_name = models.CharField(max_length=100)
