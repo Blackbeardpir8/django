@@ -17,10 +17,18 @@ from home.models import *
 fake = Faker()
 
 
-def createPerson(number):
-    for i in range (number):
-        Person.objects.create(
-            person_name = fake.name()
-        )
+#def createPerson(number):
+#    for i in range (number):
+#        Person.objects.create(
+#            person_name = fake.name()
+#        )
 
-createPerson(100000)
+def deletePerson(number):
+    for i in range(number):
+        Person.objects.first().delete()
+
+
+deletePerson(1000)
+
+
+#createPerson(100000)
