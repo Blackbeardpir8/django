@@ -32,7 +32,7 @@ class Book(models.Model):
 
     class Meta:
         db_table = "book"
-        ordering = ('price',)
+        ordering = ('-price',)
 
 ## Foreign Key or One to Many relationship
 class Brand(models.Model):
