@@ -33,6 +33,8 @@ class Book(models.Model):
     class Meta:
         db_table = "book"
         ordering = ('-price',)
+        verbose_name = "Book"
+        verbose_name_plural = "Book"
 
 ## Foreign Key or One to Many relationship
 class Brand(models.Model):
@@ -41,7 +43,9 @@ class Brand(models.Model):
     
     def __str__(self) -> str:
         return self.brand_name
-
+    
+    class Meta:
+        unique_together = ('brand_name', 'country')
 class Products(models.Model):
      brand = models.ForeignKey(Brand,on_delete=models.CASCADE)
      prduct_name = models.CharField(max_length=100)
